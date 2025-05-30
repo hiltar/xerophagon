@@ -1,0 +1,24 @@
+#!/sbin/openrc-run
+
+name="xerophagon"
+description="Run xerophagon from ramdisk"
+
+
+command="/mnt/ramdisk/xerophagon/xerophagon-arm"
+command_background=true
+pidfile="/run/${RC_SVCNAME}.pid"
+
+depend() {
+    need localmount
+    after bootmisc
+}
+    
+start_pre() {
+    if [ ! -f /mnt/ramdisk/xerophagon/xerophagon-arm ]; then
+        cp /media/mmcblk0p1/xerophagon/xerophagon-arm /mnt/ramdisk/xerophagon/ || return 1
+    fi
+
+    if [ ! -d /mnt/ramdisk/xerophagon/static ]; then
+        cp -r /media/mmcblk0p1/xerophagon/static /mnt/ramdisk/xerophagon/ || return 1
+    fi
+}
