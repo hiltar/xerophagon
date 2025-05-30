@@ -1,9 +1,9 @@
-name: xerophagon
+name: xerophagon-arm
 
 on:
   push:
     branches:
-      - main
+      - arm
   release:
     types: [created]
 
@@ -23,18 +23,18 @@ jobs:
     - name: Build
       run: |
         go mod init xerophagon
-        CGO_ENABLED=0 GOOS=linux go build -a -ldflags="-s -w" -o xerophagon
-        upx --best xerophagon
+        CGO_ENABLED=0 GOOS=linux GOARCH=arm GOARM=7 go build -a -ldflags="-s -w" -o xerophagon-arm
+        upx --best xerophagon-arm
 
     - name: Upload xerophagon as artifact
       uses: actions/upload-artifact@v4
       with:
-        name: xerophagon
-        path: xerophagon
+        name: xerophagon-arm
+        path: xerophagon-arm
     
     - name: Upload to GitHub Release
       if: github.event_name == 'release'
       uses: softprops/action-gh-release@v2
       with:
-        files: xerophagon
+        files: xerophagon-arm
         draft: true
