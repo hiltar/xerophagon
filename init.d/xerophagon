@@ -21,4 +21,8 @@ start_pre() {
     if [ ! -d /mnt/ramdisk/xerophagon/static ]; then
         cp -r /media/mmcblk0p1/xerophagon/static /mnt/ramdisk/xerophagon/ || return 1
     fi
+
+    if [ ! -d /mnt/ramdisk/xerophagon/templates ]; then
+        cp -r /media/mmcblk0p1/xerophagon/templates /mnt/ramdisk/xerophagon/ || return 1
+    fi
 }
