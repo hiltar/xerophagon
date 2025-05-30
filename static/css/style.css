@@ -1,0 +1,181 @@
+/* Retro-themed styles for Xerophagon */
+
+/* Define VCR OSD Mono font locally */
+@font-face {
+    font-family: 'VCR OSD Mono';
+    src: url('/static/fonts/VCR_OSD_Mono.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Retro theme for body */
+.retro-theme {
+    background: linear-gradient(to bottom, #1a1a1a, #333333);
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAAyCAYAAADbPDAMAAAAAXNSR0IArs4c6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAABUSURBVBhXY6xatWq4AQH7QHYDiB8w2g8gfgCxH0D8AGIHEDuA2AEkfgCxA0jsAGAHEPuAxA4gdgCxA4gdQOwAYgcQO4DYAcQOIDYAsQOI3Q8gdgCx/QsAy3YJ1AAAAABJRU5ErkJggg=='); /* Scanline effect */
+    color: #ffffff;
+    font-family: 'VCR OSD Mono', monospace, 'Courier New', Courier;
+}
+
+/* Retro text */
+.retro-text {
+    color: #00ffcc; /* Neon cyan */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7), 0 0 5px #00ffcc;
+}
+
+/* Retro box */
+.retro-box {
+    background-color: #2a2a2a;
+    border: 2px solid #00ffcc;
+    box-shadow: 3px 3px 0 #ff00ff, /* Neon pink shadow */
+                -3px -3px 0 #00ffcc; /* Neon cyan shadow */
+    border-radius: 5px;
+    padding: 15px;
+}
+
+/* Retro button */
+.retro-button {
+    background-color: #ff00ff; /* Neon pink */
+    color: #ffffff;
+    border: 2px solid #00ffcc;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.retro-button:hover {
+    background-color: #00ffcc; /* Neon cyan on hover */
+    box-shadow: 0 0 10px #00ffcc;
+}
+
+/* Dot grid styling */
+.dot-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+}
+
+.dot {
+    width: 14px;
+    height: 14px;
+    background-color: #e0e0e0;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 3px;
+    transition: background-color 0.3s ease, border 0.3s ease;
+}
+
+.dot.filled {
+    background-color: #4caf50; /* Default filled color, overridden by stage colors */
+}
+
+.dot.current-hour {
+    border: 3px solid #00ffcc; /* Neon cyan border for ongoing hour */
+    animation: pulse 1s infinite; /* Pulsing effect */
+}
+
+/* Stage-specific dot and stage container colors */
+.dot.stage-0, #current-stage.stage-0 { background-color: #ff6347; } /* Tomato - Blood sugar rising */
+.dot.stage-4, #current-stage.stage-4 { background-color: #ffa500; } /* Orange - Blood sugar drops */
+.dot.stage-8, #current-stage.stage-8 { background-color: #ffd700; } /* Gold - Fat burning */
+.dot.stage-12, #current-stage.stage-12 { background-color: #32cd32; } /* LimeGreen - Ketosis */
+.dot.stage-18, #current-stage.stage-18 { background-color: #00ced1; } /* DarkTurquoise - Higher ketosis */
+.dot.stage-24, #current-stage.stage-24 { background-color: #1e90ff; } /* DodgerBlue - Autophagy */
+.dot.stage-36, #current-stage.stage-36 { background-color: #9370db; } /* MediumPurple - Enhanced autophagy */
+.dot.stage-48, #current-stage.stage-48 { background-color: #ff69b4; } /* HotPink - Growth hormone peak */
+.dot.stage-54, #current-stage.stage-54 { background-color: #ff4500; } /* OrangeRed - Low insulin */
+.dot.stage-72, #current-stage.stage-72 { background-color: #8a2be2; } /* BlueViolet - Immune cell reformation */
+
+/* Current stage container */
+#current-stage {
+    padding: 15px;
+    color: #ffffff; /* White text for contrast */
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Text shadow for readability */
+}
+
+/* Modal styling */
+.modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.modal-content .box {
+    position: relative;
+    padding: 20px;
+}
+
+.modal-content .delete {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ff00ff; /* Neon pink */
+    border: 2px solid #00ffcc;
+}
+
+.modal-content .delete:hover {
+    background-color: #00ffcc; /* Neon cyan on hover */
+}
+
+/* Stage items in modal */
+.stage-item {
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #2a2a2a;
+    border: 1px solid #00ffcc;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+/* Apply stage colors to stage items in modal */
+.stage-item.stage-0  { background-color: rgba(255, 99, 71, 0.2); } /* Tomato */
+.stage-item.stage-4  { background-color: rgba(255, 165, 0, 0.2); } /* Orange */
+.stage-item.stage-8  { background-color: rgba(255, 215, 0, 0.2); } /* Gold */
+.stage-item.stage-12 { background-color: rgba(50, 205, 50, 0.2); } /* LimeGreen */
+.stage-item.stage-18 { background-color: rgba(0, 206, 209, 0.2); } /* DarkTurquoise */
+.stage-item.stage-24 { background-color: rgba(30, 144, 255, 0.2); } /* DodgerBlue */
+.stage-item.stage-36 { background-color: rgba(147, 112, 219, 0.2); } /* MediumPurple */
+.stage-item.stage-48 { background-color: rgba(255, 105, 180, 0.2); } /* HotPink */
+.stage-item.stage-54 { background-color: rgba(255, 69, 0, 0.2); } /* OrangeRed */
+.stage-item.stage-72 { background-color: rgba(138, 43, 226, 0.2); } /* BlueViolet */
+
+/* Pagination */
+.pagination-list {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.pagination-previous, .pagination-next {
+    background-color: #ff00ff;
+    color: #ffffff;
+    border: 2px solid #00ffcc;
+    transition: background-color 0.3s ease;
+}
+
+.pagination-previous:hover, .pagination-next:hover {
+    background-color: #00ffcc;
+}
+
+/* Pulsing animation for current hour */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .dot {
+        width: 12px;
+        height: 12px;
+        margin: 2px;
+    }
+    .dot.current-hour {
+        border: 2px solid #00ffcc;
+    }
+    .modal-content {
+        max-width: 95%;
+    }
+}

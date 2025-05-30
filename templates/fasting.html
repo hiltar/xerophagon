@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fasting - Xerophagon</title>
+    <link rel="stylesheet" href="/static/css/bulma.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body class="retro-theme">
+    <section class="section">
+        <div class="container">
+            <h1 class="title retro-text">Xerophagon - Fasting</h1>
+            <div class="tabs">
+                <ul>
+                    <li><a href="/profile" class="retro-text">Profile</a></li>
+                    <li class="is-active"><a href="/fasting" class="retro-text">Fasting</a></li>
+                </ul>
+            </div>
+
+            {{if .ErrorMessage}}
+            <div class="notification is-danger retro-box">
+                <p class="retro-text">{{.ErrorMessage}}</p>
+            </div>
+            {{end}}
+
+            {{if .CurrentFast}}
+            <div class="box retro-box">
+                <h2 class="subtitle retro-text">Ongoing Fast</h2>
+                <p><strong>Started:</strong> {{.CurrentFast.StartTime.Format "2006-01-02 15:04"}}</p>
+                {{if gt .CurrentFast.GoalHours 0}}
+                <p><strong>Goal:</strong> {{.CurrentFast.GoalHours}} hours</p>
+                {{end}}
+                <form action="/end_fast" method="POST">
+                    <button type="submit" class="button is-danger retro-button">End Fast</button>
+                </form>
+            </div>
+            {{else}}
+            <div class="box retro-box">
+                <h2 class="subtitle retro-text">Start a New Fast</h2>
+                <form action="/start_fast" method="POST">
+                    <div class="field">
+                        <label class="label retro-text">Goal (hours, optional)</label>
+                        <div class="control">
+                            <input class="input" type="number" name="goal" min="0" placeholder="Enter fasting goal in hours">
+                        </div>
+                    </div>
+                    <div class="control">
+                        <button type="submit" class="button is-primary retro-button">Start Fast</button>
+                    </div>
+                </form>
+            </div>
+            {{end}}
+        </div>
+    </section>
+</body>
+</html>
