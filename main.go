@@ -33,7 +33,7 @@ type TemplateData struct {
     HasNext        bool
 }
 
-const dataFile = "/data/data.json"
+const dataFile = "/opt/xerophagon/data.json"
 
 // loadData reads the JSON data file
 func loadData() (*AppData, error) {
