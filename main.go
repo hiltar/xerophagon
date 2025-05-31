@@ -142,7 +142,7 @@ func fastingHandler(w http.ResponseWriter, r *http.Request) {
         http.Error(w, "Error loading data", http.StatusInternalServerError)
         return
     }
-    t, err := template.ParseFiles("templates/fasting.html")
+    t, err := template.ParseFiles("/mnt/ramdisk/xerophagon/templates/fasting.html")
     if err != nil {
         http.Error(w, "Error parsing template", http.StatusInternalServerError)
         return
