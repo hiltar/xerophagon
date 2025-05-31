@@ -150,7 +150,7 @@ mkdir /mnt/ramdisk
 echo "tmpfs /mnt/ramdisk tmpfs size=16m,mode=0755 0 0" >> /etc/fstab
 mount -a
 
-# LBU
+# LBU for data persistence
 lbu add /etc/wpa_supplicant/
 lbu commit -d
 
@@ -177,3 +177,10 @@ reboot # after reboot xerophagon should be available from <rpi-ip>:5000
 rc-service xerophagon status
 
 ```
+
+## Alpine Local Backup tool (LBU)
+Local backup utility(lbu) is the Alpine Linux tool to manage Diskless Mode installations. For these installations, `lbu` tool must be used to commit the changes whenever Alpine Package Keeper is used.
+
+When Alpine Linux boots in diskless mode, it initially only loads a few required packages from the boot device. However, local adjustments to what-gets-loaded-into-RAM are possible, e.g. installing a package or adjusting the configuration files in /etc. The modifications can be saved with `lbu` tool to an overlay file i.e apkovl file that can be automatically loaded when booting, to restore the saved state.
+
+By default, an `lbu commit` only stores modifications below /etc, with the exception of the /etc/init.d/ directory. If a user was created during the setup-alpine script, that user's home directory is also added to the paths that lbu will backup up. However, `lbu add` enables modifying that set of included files, and can be used to specify additional files or folders. 
