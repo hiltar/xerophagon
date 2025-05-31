@@ -124,7 +124,7 @@ func profileHandler(w http.ResponseWriter, r *http.Request) {
             return a + b
         },
     })
-    tmpl, err = tmpl.ParseFiles("templates/profile.html")
+    tmpl, err = tmpl.ParseFiles("/mnt/ramdisk/xerophagon/templates/profile.html")
     if err != nil {
         http.Error(w, "Error parsing template", http.StatusInternalServerError)
         return
@@ -236,7 +236,7 @@ func endFastHandler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
     // Serve static files
-    http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
+    http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("/mnt/ramdisk/xerophagon/static"))))
 
     // Define routes
     http.HandleFunc("/", homeHandler)
