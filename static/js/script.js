@@ -49,7 +49,7 @@ function updateUI() {
             dot.classList.remove("filled");
         }
         // Highlight current hour
-        if (hour === elapsedHours + 1) {
+        if (hour == elapsedHours) {
             dot.classList.add("current-hour");
         } else {
             dot.classList.remove("current-hour");
