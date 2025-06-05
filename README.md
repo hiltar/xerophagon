@@ -168,6 +168,7 @@ ssh root@<rpi-ip>
 # Update RC configuration
 chmod +x /etc/init.d/xerophagon
 rc-update add xerophagon default
+lbu add /etc/init.d/xerophagon
 
 # data folder
 mkdir /opt/xerophagon/
