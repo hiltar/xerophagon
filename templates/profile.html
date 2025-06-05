@@ -19,42 +19,43 @@
             </div>
 
             {{if .CurrentFast}}
-            <div id="current-fast" class="box retro-box" data-start-time="{{.CurrentFast.StartTime.Unix}}">
-                <h2 class="subtitle retro-text">Current Fast</h2>
+            <div class="box retro-box" id="current-fast" data-start-time="{{.CurrentFast.StartTime.Unix}}">
+                <h2 class="subtitle retro-text">Ongoing Fast</h2>
                 <p><strong>Started:</strong> {{.CurrentFast.StartTime.Format "2006-01-02 15:04"}}</p>
                 {{if gt .CurrentFast.GoalHours 0}}
                 <p><strong>Goal:</strong> {{.CurrentFast.GoalHours}} hours</p>
-                <div id="dot-grid" class="box retro-box">
-                    {{range $index, $i := seq 1 .CurrentFast.GoalHours}}
-                    {{if eq (mod $index 12) 0}}
-                    <div class="dot-row">
-                    {{end}}
-                    <span class="dot" data-hour="{{$i}}"></span>
-                    {{if or (eq (mod $index 12) 11) (eq $i $.CurrentFast.GoalHours)}}
-                    </div>
-                    {{end}}
+                <div id="dot-grid">
+                    {{ $goal := .CurrentFast.GoalHours }}
+                    {{range $i := seq 1 $goal}}
+                        {{if eq (mod $i 12) 1}}
+                            <div class="dot-row">
+                        {{end}}
+                        <div class="dot" data-hour="{{$i}}"></div>
+                        {{if or (eq (mod $i 12) 0) (eq $i $goal)}}
+                            </div>
+                        {{end}}
                     {{end}}
                 </div>
                 {{end}}
-                <p><strong>Elapsed:</strong> <span id="timer" class="retro-text">00:00:00</span></p>
-            </div>
-
-            <h3 class="subtitle retro-text">Current Fasting Stage</h3>
-            <div id="current-stage" class="box retro-box"></div>
-            <button class="button is-info retro-button" id="view-stages-btn">View All Stages</button>
-            <div id="stages-modal" class="modal">
-                <div class="modal-background"></div>
-                <div class="modal-content">
-                    <div class="box retro-box">
-                        <button class="delete is-medium" id="modal-close-btn" aria-label="close"></button>
-                        <h4 class="title is-4 retro-text">Fasting Stages</h4>
-                        <div id="stages-list"></div>
-                    </div>
-                </div>
+                <p><strong>Elapsed Time:</strong> <span id="timer">00:00:00</span></p>
+                <div id="current-stage" class="box retro-box"></div>
+                <button id="view-stages-btn" class="button is-info retro-button">View All Stages</button>
             </div>
             {{else}}
             <p class="notification is-info retro-text">No ongoing fast. Start one in the Fasting tab!</p>
             {{end}}
+
+            <!-- Modal for stages -->
+            <div id="stages-modal" class="modal">
+                <div class="modal-background"></div>
+                <div class="modal-content">
+                    <div class="box retro-box">
+                        <button id="modal-close-btn" class="delete" aria-label="close"></button>
+                        <h3 class="subtitle retro-text">Fasting Stages</h3>
+                        <div id="stages-list"></div>
+                    </div>
+                </div>
+            </div>
 
             <h3 class="subtitle retro-text">Fasting History</h3>
             <div class="box retro-box">
@@ -64,23 +65,24 @@
                     <li class="retro-text">{{.StartTime.Format "2006-01-02 15:04"}} - {{printf "%.1f" .DurationHours}} hours</li>
                     {{end}}
                 </ul>
+                {{else}}
+                <p class="retro-text">No fasting history yet.</p>
+                {{end}}
+                {{if or .HasPrev .HasNext}}
                 <nav class="pagination" role="navigation" aria-label="pagination">
                     <ul class="pagination-list">
                         {{if .HasPrev}}
                         <li>
-                            <a class="pagination-previous retro-button" href="/profile?page={{.CurrentPage | printf "%d" | add -1}}">Previous</a>
+                            <a class="pagination-previous retro-button" href="/profile?page={{add .CurrentPage -1}}">Previous</a>
                         </li>
                         {{end}}
                         {{if .HasNext}}
                         <li>
-                            <a class="pagination-next retro-button" href="/profile?page={{.CurrentPage | printf "%d" | add 1}}">Next</a>
+                            <a class="pagination-next retro-button" href="/profile?page={{add .CurrentPage 1}}">Next</a>
                         </li>
                         {{end}}
                     </ul>
-                    <p class="retro-text">Page {{.CurrentPage}} of {{.TotalPages}}</p>
                 </nav>
-                {{else}}
-                <p class="retro-text">No fasting history yet.</p>
                 {{end}}
             </div>
         </div>
