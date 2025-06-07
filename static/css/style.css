@@ -138,13 +138,13 @@
 .stage-item.stage-12 { background-color: rgba(50, 205, 50, 0.2); } /* LimeGreen */
 .stage-item.stage-18 { background-color: rgba(0, 206, 209, 0.2); } /* DarkTurquoise */
 .stage-item.stage-24 { background-color: rgba(30, 144, 255, 0.2); } /* DodgerBlue */
-.stage-item.stage-36 { background-color: rgba(11, 43, 99, 0.2); } /* NavyBlue */
+.stage-item.stage-36 { background-color: rgba(0, 0, 128, 0.2); } /* NavyBlue */
 .stage-item.stage-48 { background-color: rgba(255, 105, 180, 0.2); } /* HotPink */
-.stage-item.stage-54 { background-color: rgba(248, 171, 216, 0.2); } /* Orchid */
+.stage-item.stage-54 { background-color: rgba(238, 128, 233, 0.2); } /* Orchid */
 .stage-item.stage-72 { background-color: rgba(138, 43, 226, 0.2); } /* BlueViolet */
-.stage-item.stage-96 { background-color: rgba(92, 64, 129, 0.2); } /* NeonPurple */
-.stage-item.stage-120 { background-color: rgba(63, 64, 38, 0.2); } /* DarkPurple */
-.stage-item.stage-144 { background-color: rgba(85, 47, 0, 0.2); } /* Oxblood */
+.stage-item.stage-96 { background-color: rgba(81, 21, 140, 0.2); } /* NeonPurple */
+.stage-item.stage-120 { background-color: rgba(52, 21, 57, 0.2); } /* DarkPurple */
+.stage-item.stage-144 { background-color: rgba(74, 4, 4, 0.2); } /* Oxblood */
 
 /* Pagination */
 .pagination-list {
