@@ -177,6 +177,10 @@ lbu commit -d
 reboot # after reboot xerophagon should be available from <rpi-ip>:5000
 rc-service xerophagon status
 
+# Add a weekly cronjob:
+crontab -e
+0 1 * * 5 lbu commit
+
 # Disable SSH
 rc-service sshd zap
 apk del openssh
