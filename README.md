@@ -47,6 +47,7 @@
     ```
   - Server-side pagination for fasting history (5 entries per page) using query parameters (e.g., `/profile?page=2`).
   - Template rendering with Go's `html/template` package.
+  - Static files embedded into one executable.
 
 - **Frontend**:
   - **HTML Templates**: `profile.html` and `fasting.html` for Profile and Fasting tabs.
