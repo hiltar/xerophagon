@@ -114,11 +114,7 @@ sudo mv headless.apkovl.tar.gz /mnt/sdcard
 
 # Xerophagon service
 sudo mkdir /mnt/sdcard/xerophagon
-sudo mkdir /mnt/sdcard/xerophagon/static
-sudo mkdir /mnt/sdcard/xerophagon/templates
 # Copy xerophagon-arm executable into /mnt/sdcard/xerophagon
-# Copy static files into /mnt/sdcard/xerophagon/static
-# Copy template files into /mnt/sdcard/xerophagon/templates
 
 # WiFi setup
 sudo nano /mnt/sdcard/wpa_supplicant.conf
