@@ -12,8 +12,6 @@ RUN CGO_ENABLED=0 GOOS=linux go build -a -ldflags="-s -w" -o xerophagon .
 
 FROM scratch
 COPY --from=builder /app/xerophagon /xerophagon
-COPY --from=builder --chown=1000:1000 /app/static /static
-COPY --from=builder --chown=1000:1000 /app/templates /templates
 
 USER 1000:1000
 WORKDIR /
