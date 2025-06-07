@@ -9,7 +9,10 @@ const stages = [
     { hours: 36, name: "Enhanced autophagy phase", description: "Body begins to recycle damaged cells and misfolded proteins", class: "stage-36" },
     { hours: 48, name: "Growth hormone peak phase", description: "Growth hormones reach the highest level (500%)", class: "stage-48" },
     { hours: 54, name: "Low insulin level phase", description: "Insulin levels drop to the lowest point. The body becomes more insulin sensitive", class: "stage-54" },
-    { hours: 72, name: "Immune cell reformation phase", description: "Breakdown of old immune cells and generation of new ones", class: "stage-72" }
+    { hours: 72, name: "Immune cell reformation phase", description: "Breakdown of old immune cells and generation of new ones", class: "stage-72" },
+    { hours: 96, name: "Metabolic shift phase", description: "The body transitions to full ketosis, utilizing fatty acids and ketone bodies as primary energy sources", class: "stage-96" },
+    { hours: 120, name: "Multi-Organ response phase", description: "Significant changes in protein levels across multiple organs, indicating systemic adaptation to prolonged fasting", class: "stage-120" },
+    { hours: 144, name: "Protein level phase", description: "Systemic changes are occurring in protein levels, indicating widespread physiological adaptations", class: "stage-144" }
 ];
 
 function updateUI() {
