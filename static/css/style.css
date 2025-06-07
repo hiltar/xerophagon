@@ -77,12 +77,15 @@
 .dot.stage-4, #current-stage.stage-4 { background-color: #ffa500; } /* Orange - Blood sugar drops */
 .dot.stage-8, #current-stage.stage-8 { background-color: #ffd700; } /* Gold - Fat burning */
 .dot.stage-12, #current-stage.stage-12 { background-color: #32cd32; } /* LimeGreen - Ketosis */
-.dot.stage-18, #current-stage.stage-18 { background-color: #00ced1; } /* DarkTurquoise - Higher ketosis */
+.dot.stage-18, #current-stage.stage-18 { background-color: #00674F; } /* EmeraldGreen - Higher ketosis */
 .dot.stage-24, #current-stage.stage-24 { background-color: #1e90ff; } /* DodgerBlue - Autophagy */
-.dot.stage-36, #current-stage.stage-36 { background-color: #9370db; } /* MediumPurple - Enhanced autophagy */
+.dot.stage-36, #current-stage.stage-36 { background-color: #000080; } /* NavyBlue - Enhanced autophagy */
 .dot.stage-48, #current-stage.stage-48 { background-color: #ff69b4; } /* HotPink - Growth hormone peak */
-.dot.stage-54, #current-stage.stage-54 { background-color: #ff4500; } /* OrangeRed - Low insulin */
-.dot.stage-72, #current-stage.stage-72 { background-color: #8a2be2; } /* BlueViolet - Immune cell reformation */
+.dot.stage-54, #current-stage.stage-54 { background-color: #ED80E9; } /* Orchid - Low insulin */
+.dot.stage-72, #current-stage.stage-72 { background-color: #7F00FF; } /* BlueViolet - Immune cell reformation */
+.dot.stage-96, #current-stage.stage-96 { background-color: #51158C; } /* NeonPurple - Metabolic shift */
+.dot.stage-120, #current-stage.stage-120 { background-color: #341539; } /* DarkPurple - Multi-Organ response */
+.dot.stage-144, #current-stage.stage-144 { background-color: #4A0404; } /* Oxblood - Protein level changes */
 
 /* Current stage container */
 #current-stage {
@@ -135,10 +138,13 @@
 .stage-item.stage-12 { background-color: rgba(50, 205, 50, 0.2); } /* LimeGreen */
 .stage-item.stage-18 { background-color: rgba(0, 206, 209, 0.2); } /* DarkTurquoise */
 .stage-item.stage-24 { background-color: rgba(30, 144, 255, 0.2); } /* DodgerBlue */
-.stage-item.stage-36 { background-color: rgba(147, 112, 219, 0.2); } /* MediumPurple */
+.stage-item.stage-36 { background-color: rgba(11, 43, 99, 0.2); } /* NavyBlue */
 .stage-item.stage-48 { background-color: rgba(255, 105, 180, 0.2); } /* HotPink */
-.stage-item.stage-54 { background-color: rgba(255, 69, 0, 0.2); } /* OrangeRed */
+.stage-item.stage-54 { background-color: rgba(248, 171, 216, 0.2); } /* Orchid */
 .stage-item.stage-72 { background-color: rgba(138, 43, 226, 0.2); } /* BlueViolet */
+.stage-item.stage-96 { background-color: rgba(92, 64, 129, 0.2); } /* NeonPurple */
+.stage-item.stage-120 { background-color: rgba(63, 64, 38, 0.2); } /* DarkPurple */
+.stage-item.stage-144 { background-color: rgba(85, 47, 0, 0.2); } /* Oxblood */
 
 /* Pagination */
 .pagination-list {
