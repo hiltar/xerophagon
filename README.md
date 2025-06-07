@@ -177,6 +177,12 @@ lbu commit -d
 reboot # after reboot xerophagon should be available from <rpi-ip>:5000
 rc-service xerophagon status
 
+# Disable SSH
+rc-service sshd zap
+apk del openssh
+
+rc-status
+lbu commit
 ```
 
 ## Alpine Local Backup tool (LBU)
