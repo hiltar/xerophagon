@@ -23,7 +23,7 @@ jobs:
     - name: Build
       run: |
         go mod init xerophagon
-        CGO_ENABLED=0 GOOS=linux go build -a -ldflags="-s -w" -o xerophagon
+        CGO_ENABLED=0 GOOS=linux go build -a -trimpath -ldflags="-s -w" -o xerophagon
         upx --best --lzma xerophagon
 
     - name: Upload xerophagon as artifact
