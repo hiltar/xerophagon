@@ -176,7 +176,9 @@ rc-service xerophagon status
 
 # Add a weekly cronjob:
 crontab -e
-0 1 * * 5 lbu commit
+1 * * *                                 lbu status | grep -q "no changes" || lbu commit
+* 4 * * 5                               apk update && apk upgrade
+* 5 * * 4                               rc-service sshd restart
 
 # Disable SSH
 rc-service sshd zap
